@@ -12,6 +12,7 @@ syntax: glob
 .settings/
 .settings
 
+
 # building
 target
 tmp*
@@ -22,3 +23,7 @@ dist
 .CVS
 .hg*
 
+
+bin/
+
+.classpath
