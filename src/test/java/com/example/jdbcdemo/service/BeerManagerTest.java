@@ -15,8 +15,8 @@ public class BeerManagerTest {
 	
 	private final static String NAME_1 = "Zenek";
 	private final static String TYPE_1 = "Marcowe";
-	private final static double PERCENTOFALCOHOL_1 = 4.5;
-	private final static double PRICE_1 = 4.5;
+	private final static double PERCENTOFALCOHOL_1 = 4.55;
+	private final static double PRICE_1 = 4.55;
 	
 	@Test
 	public void checkConnection(){
@@ -35,6 +35,9 @@ public class BeerManagerTest {
 		Beer beerRetrieved = beers.get(0);
 		
 		assertEquals(NAME_1, beerRetrieved.getName());
+		assertEquals(TYPE_1, beerRetrieved.getType());
+		assertEquals(PERCENTOFALCOHOL_1, beerRetrieved.getPercentOfAlcohol(), 5);
+		assertEquals(PRICE_1, beerRetrieved.getPrice(), 5);
 		
 	}
 
