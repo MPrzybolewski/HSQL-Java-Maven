@@ -14,7 +14,9 @@ public class BeerManagerTest {
 	BeerManager beerManager = new BeerManager();
 	
 	private final static String NAME_1 = "Zenek";
-	private final static int YOB_1 = 1945;
+	private final static String TYPE_1 = "Marcowe";
+	private final static double PERCENTOFALCOHOL_1 = 4.5;
+	private final static double PRICE_1 = 4.5;
 	
 	@Test
 	public void checkConnection(){
@@ -24,15 +26,15 @@ public class BeerManagerTest {
 	@Test
 	public void checkAdding(){
 		
-		Beer beer = new Beer(NAME_1, YOB_1);
+		Beer beer = new Beer(NAME_1, TYPE_1, PERCENTOFALCOHOL_1,PRICE_1);
 		
-		beerManager.clearPersons();
+		beerManager.clearBeers();
 		assertEquals(1,beerManager.addBeer(beer));
 		
-		List<Beer> persons = beerManager.getAllBeers();
-		Beer personRetrieved = persons.get(0);
+		List<Beer> beers = beerManager.getAllBeers();
+		Beer beerRetrieved = beers.get(0);
 		
-		assertEquals(NAME_1, personRetrieved.getName());
+		assertEquals(NAME_1, beerRetrieved.getName());
 		
 	}
 

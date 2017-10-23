@@ -9,10 +9,11 @@ public class Beer {
 	private double percentOfAlcohol;
 	private double price;
 	
+	
 	public Beer() {
 	}
 	
-	public Beer(String name, int yob) {
+	public Beer(String name, String type, double percentOfAlcohol, double price) {
 		super();
 		this.name = name;
 	}
