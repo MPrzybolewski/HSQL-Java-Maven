@@ -9,9 +9,9 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.example.jdbcdemo.domain.Person;
+import com.example.jdbcdemo.domain.Beer;
 
-public class PersonManager {
+public class BeerManager {
 
 	private Connection connection;
 
@@ -25,7 +25,7 @@ public class PersonManager {
 
 	private Statement statement;
 
-	public PersonManager() {
+	public BeerManager() {
 		try {
 			connection = DriverManager.getConnection(url);
 			statement = connection.createStatement();
@@ -67,11 +67,10 @@ public class PersonManager {
 		}
 	}
 
-	public int addPerson(Person person) {
+	public int addBeer(Beer person) {
 		int count = 0;
 		try {
 			addPersonStmt.setString(1, person.getName());
-			addPersonStmt.setInt(2, person.getYob());
 
 			count = addPersonStmt.executeUpdate();
 
@@ -81,24 +80,23 @@ public class PersonManager {
 		return count;
 	}
 
-	public List<Person> getAllPersons() {
-		List<Person> persons = new ArrayList<Person>();
+	public List<Beer> getAllBeers() {
+		List<Beer> beers = new ArrayList<Beer>();
 
 		try {
 			ResultSet rs = getAllPersonsStmt.executeQuery();
 
 			while (rs.next()) {
-				Person p = new Person();
-				p.setId(rs.getInt("id"));
-				p.setName(rs.getString("name"));
-				p.setYob(rs.getInt("yob"));
-				persons.add(p);
+				Beer b = new Beer();
+				b.setId(rs.getInt("id"));
+				b.setName(rs.getString("name"));
+				beers.add(b);
 			}
 
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		return persons;
+		return beers;
 	}
 
 }
