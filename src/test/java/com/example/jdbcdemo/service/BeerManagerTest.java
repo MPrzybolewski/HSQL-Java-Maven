@@ -1,19 +1,19 @@
 package com.example.jdbcdemo.service;
 
-import static org.junit.Assert.*;
+import com.example.jdbcdemo.domain.Beer;
+import org.junit.Test;
 
 import java.util.List;
 
-import org.junit.Test;
-
-import com.example.jdbcdemo.domain.Beer;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 public class BeerManagerTest {
 	
 	
 	BeerManager beerManager = new BeerManager();
 	
-	private final static String NAME_1 = "Zenek";
+	private final static String NAME_1 = "Zywiec Marcowe";
 	private final static String TYPE_1 = "Marcowe";
 	private final static double PERCENTOFALCOHOL_1 = 4.55;
 	private final static double PRICE_1 = 4.55;
@@ -40,5 +40,6 @@ public class BeerManagerTest {
 		assertEquals(PRICE_1, beerRetrieved.getPrice(), 5);
 		
 	}
+
 
 }

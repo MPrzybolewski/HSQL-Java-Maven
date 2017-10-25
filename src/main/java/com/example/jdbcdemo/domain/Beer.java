@@ -16,6 +16,9 @@ public class Beer {
 	public Beer(String name, String type, double percentOfAlcohol, double price) {
 		super();
 		this.name = name;
+		this.type = type;
+		this.percentOfAlcohol = percentOfAlcohol;
+		this.price = price;
 	}
 	public long getId() {
 		return id;
