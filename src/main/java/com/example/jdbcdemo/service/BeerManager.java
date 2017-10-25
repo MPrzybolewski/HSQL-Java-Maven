@@ -17,6 +17,10 @@ public class BeerManager {
 	private PreparedStatement addBeerStmt;
 	private PreparedStatement deleteAllBeersStmt;
 	private PreparedStatement getAllBeersStmt;
+	private PreparedStatement updateBeerNameStmt;
+	private PreparedStatement updateBeerTypeStmt;
+	private PreparedStatement updateBeerPercentOfAlcoholStmt;
+	private PreparedStatement updateBeerPriceStmt;
 
 	private Statement statement;
 
@@ -44,6 +48,14 @@ public class BeerManager {
 					.prepareStatement("DELETE FROM Beer");
 			getAllBeersStmt = connection
 					.prepareStatement("SELECT id, name, type, percentOfAlcohol, price FROM Beer");
+			updateBeerNameStmt = connection
+					.prepareStatement("UPDATE Beer SET name=? WHERE id=?");
+			updateBeerTypeStmt = connection
+					.prepareStatement("UPDATE Beer SET type=? WHERE id=?");
+			updateBeerPercentOfAlcoholStmt = connection
+					.prepareStatement("UPDATE Beer SET percentofalcohol=? WHERE id=?");
+			updateBeerPriceStmt = connection
+					.prepareStatement("UPDATE Beer SET price=? WHERE id=?");
 
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -52,6 +64,62 @@ public class BeerManager {
 
 	Connection getConnection() {
 		return connection;
+	}
+
+	public int updateBeerName(String nameToUpdate, long id){
+		int count = 0;
+		try{
+			updateBeerNameStmt.setString(1,nameToUpdate);
+			updateBeerNameStmt.setLong(2,id);
+
+			count = updateBeerNameStmt.executeUpdate();
+		} catch (Exception e){
+			e.printStackTrace();
+		}
+
+		return count;
+	}
+
+	public int updateBeerType(String typeToUpdate, long id){
+		int count = 0;
+		try{
+			updateBeerTypeStmt.setString(1,typeToUpdate);
+			updateBeerTypeStmt.setLong(2,id);
+
+			count = updateBeerTypeStmt.executeUpdate();
+		} catch (Exception e){
+			e.printStackTrace();
+		}
+
+		return count;
+	}
+
+	public int updateBeerPercentOfAlcohol(double percentToUpdate, long id){
+		int count = 0;
+		try{
+			updateBeerPercentOfAlcoholStmt.setDouble(1,percentToUpdate);
+			updateBeerPercentOfAlcoholStmt.setLong(2,id);
+
+			count = updateBeerPercentOfAlcoholStmt.executeUpdate();
+		} catch (Exception e){
+			e.printStackTrace();
+		}
+
+		return count;
+	}
+
+	public int updateBeerPrice(double priceToUpdate, long id){
+		int count = 0;
+		try{
+			updateBeerPriceStmt.setDouble(1,priceToUpdate);
+			updateBeerPriceStmt.setLong(2,id);
+
+			count = updateBeerPriceStmt.executeUpdate();
+		} catch (Exception e){
+			e.printStackTrace();
+		}
+
+		return count;
 	}
 
 	void clearBeers() {
