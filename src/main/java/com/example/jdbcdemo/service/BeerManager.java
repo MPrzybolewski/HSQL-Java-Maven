@@ -21,6 +21,7 @@ public class BeerManager {
 	private PreparedStatement updateBeerTypeStmt;
 	private PreparedStatement updateBeerPercentOfAlcoholStmt;
 	private PreparedStatement updateBeerPriceStmt;
+	private PreparedStatement searchBeerStmt;
 
 	private Statement statement;
 
@@ -56,6 +57,8 @@ public class BeerManager {
 					.prepareStatement("UPDATE Beer SET percentofalcohol=? WHERE id=?");
 			updateBeerPriceStmt = connection
 					.prepareStatement("UPDATE Beer SET price=? WHERE id=?");
+			searchBeerStmt = connection
+					.prepareStatement("SELECT id, name, type ,percentOfAlcohol, price FROM Beer WHERE name=?");
 
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -168,4 +171,25 @@ public class BeerManager {
 		return beers;
 	}
 
+	public List<Beer> searchBeer(String name){
+		List<Beer> beers = new ArrayList<>();
+		try{
+			searchBeerStmt.setString(1,name);
+			ResultSet rs = searchBeerStmt.executeQuery();
+
+			while(rs.next()){
+				Beer b = new Beer();
+				b.setId(rs.getInt("id"));
+				b.setName(rs.getString("name"));
+				b.setType(rs.getString("type"));
+				b.setPercentOfAlcohol(rs.getDouble("percentOfAlcohol"));
+				b.setPrice(rs.getDouble("price"));
+				beers.add(b);
+			}
+
+		} catch (SQLException e){
+			e.printStackTrace();
+		}
+		return beers;
+	}
 }

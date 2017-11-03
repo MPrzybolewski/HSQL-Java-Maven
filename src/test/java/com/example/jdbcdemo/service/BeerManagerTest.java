@@ -78,4 +78,22 @@ public class BeerManagerTest {
 		assertEquals(PRICE_TO_UPDATE,beerRetrieved.getPercentOfAlcohol(),5);
 
 	}
+
+	@Test
+	public void checkSearching(){
+		Beer beer1 = new Beer(NAME_2, TYPE_2, PERCENTOFALCOHOL_2, PRICE_2);
+
+		beerManager.clearBeers();
+
+		beerManager.addBeer(beer1);
+
+		List<Beer> beers = beerManager.searchBeer("Heineken");
+		Beer beerRetrieved = beers.get(0);
+
+		assertEquals(NAME_2,beerRetrieved.getName());
+		assertEquals(TYPE_2,beerRetrieved.getType());
+		assertEquals(PERCENTOFALCOHOL_2, beerRetrieved.getPercentOfAlcohol(),5);
+		assertEquals(PRICE_2,beerRetrieved.getPrice(),5);
+
+	}
 }
