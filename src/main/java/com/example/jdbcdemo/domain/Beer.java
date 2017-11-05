@@ -2,7 +2,7 @@ package com.example.jdbcdemo.domain;
 
 public class Beer {
 	
-	private long id;
+	private int id;
 	
 	private String name;
 	private String type;
@@ -20,10 +20,10 @@ public class Beer {
 		this.percentOfAlcohol = percentOfAlcohol;
 		this.price = price;
 	}
-	public long getId() {
+	public int getId() {
 		return id;
 	}
-	public void setId(long id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 	public String getName() {

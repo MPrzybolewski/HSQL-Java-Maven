@@ -6,7 +6,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class BeerManager {
+public class BeerManager implements IBeerManager {
 
 	private Connection connection;
 
@@ -17,11 +17,9 @@ public class BeerManager {
 	private PreparedStatement addBeerStmt;
 	private PreparedStatement deleteAllBeersStmt;
 	private PreparedStatement getAllBeersStmt;
-	private PreparedStatement updateBeerNameStmt;
-	private PreparedStatement updateBeerTypeStmt;
-	private PreparedStatement updateBeerPercentOfAlcoholStmt;
-	private PreparedStatement updateBeerPriceStmt;
+	private PreparedStatement updateBeerStmt;
 	private PreparedStatement searchBeerStmt;
+	private PreparedStatement deleteBeerStmt;
 
 	private Statement statement;
 
@@ -49,16 +47,12 @@ public class BeerManager {
 					.prepareStatement("DELETE FROM Beer");
 			getAllBeersStmt = connection
 					.prepareStatement("SELECT id, name, type, percentOfAlcohol, price FROM Beer");
-			updateBeerNameStmt = connection
-					.prepareStatement("UPDATE Beer SET name=? WHERE id=?");
-			updateBeerTypeStmt = connection
-					.prepareStatement("UPDATE Beer SET type=? WHERE id=?");
-			updateBeerPercentOfAlcoholStmt = connection
-					.prepareStatement("UPDATE Beer SET percentofalcohol=? WHERE id=?");
-			updateBeerPriceStmt = connection
-					.prepareStatement("UPDATE Beer SET price=? WHERE id=?");
+			updateBeerStmt = connection
+					.prepareStatement("UPDATE Beer SET name=?, type=?, percentOfAlcohol=?, price=? WHERE id=?");
 			searchBeerStmt = connection
 					.prepareStatement("SELECT id, name, type ,percentOfAlcohol, price FROM Beer WHERE name=?");
+			deleteBeerStmt = connection
+					.prepareStatement("DELETE FROM Beer WHERE id=?");
 
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -69,63 +63,36 @@ public class BeerManager {
 		return connection;
 	}
 
-	public int updateBeerName(String nameToUpdate, long id){
+	public int updateBeer(Beer beer, int id){
 		int count = 0;
 		try{
-			updateBeerNameStmt.setString(1,nameToUpdate);
-			updateBeerNameStmt.setLong(2,id);
+			updateBeerStmt.setString(1,beer.getName());
+			updateBeerStmt.setString(2,beer.getType());
+			updateBeerStmt.setDouble(3,beer.getPercentOfAlcohol());
+			updateBeerStmt.setDouble(4,beer.getPrice());
+			updateBeerStmt.setInt(5,id);
 
-			count = updateBeerNameStmt.executeUpdate();
-		} catch (Exception e){
+			count = updateBeerStmt.executeUpdate();
+
+		} catch (SQLException e){
 			e.printStackTrace();
 		}
-
 		return count;
 	}
 
-	public int updateBeerType(String typeToUpdate, long id){
+	public int deleteBeer(int id){
 		int count = 0;
 		try{
-			updateBeerTypeStmt.setString(1,typeToUpdate);
-			updateBeerTypeStmt.setLong(2,id);
+			deleteBeerStmt.setInt(1,id);
+			count = deleteBeerStmt.executeUpdate();
 
-			count = updateBeerTypeStmt.executeUpdate();
-		} catch (Exception e){
+		} catch (SQLException e){
 			e.printStackTrace();
 		}
-
 		return count;
 	}
 
-	public int updateBeerPercentOfAlcohol(double percentToUpdate, long id){
-		int count = 0;
-		try{
-			updateBeerPercentOfAlcoholStmt.setDouble(1,percentToUpdate);
-			updateBeerPercentOfAlcoholStmt.setLong(2,id);
-
-			count = updateBeerPercentOfAlcoholStmt.executeUpdate();
-		} catch (Exception e){
-			e.printStackTrace();
-		}
-
-		return count;
-	}
-
-	public int updateBeerPrice(double priceToUpdate, long id){
-		int count = 0;
-		try{
-			updateBeerPriceStmt.setDouble(1,priceToUpdate);
-			updateBeerPriceStmt.setLong(2,id);
-
-			count = updateBeerPriceStmt.executeUpdate();
-		} catch (Exception e){
-			e.printStackTrace();
-		}
-
-		return count;
-	}
-
-	void clearBeers() {
+	public void clearBeers() {
 		try {
 			deleteAllBeersStmt.executeUpdate();
 		} catch (SQLException e) {

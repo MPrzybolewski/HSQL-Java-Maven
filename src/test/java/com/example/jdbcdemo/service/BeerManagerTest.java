@@ -54,23 +54,20 @@ public class BeerManagerTest {
 	@Test
 	public void checkUpdating(){
 		Beer beer1 = new Beer(NAME_1, TYPE_1, PERCENTOFALCOHOL_1, PRICE_1);
-		Beer beer2 = new Beer(NAME_2, TYPE_2, PERCENTOFALCOHOL_2, PRICE_2);
+		Beer beer2 = new Beer(NAME_TO_UPDATE, TYPE_TO_UPDATE, PERCENT_TO_UPDATE, PRICE_TO_UPDATE);
 
 		beerManager.clearBeers();
 
 		beerManager.addBeer(beer1);
-		beerManager.addBeer(beer2);
 
 		List<Beer> beers = beerManager.getAllBeers();
 		Beer beerRetrieved = beers.get(0);
 
-		assertEquals(1,beerManager.updateBeerName(NAME_TO_UPDATE,beerRetrieved.getId()));
-		assertEquals(1,beerManager.updateBeerType(TYPE_TO_UPDATE,beerRetrieved.getId()));
-		assertEquals(1,beerManager.updateBeerPercentOfAlcohol(PERCENT_TO_UPDATE,beerRetrieved.getId()));
-		assertEquals(1,beerManager.updateBeerPrice(PRICE_TO_UPDATE,beerRetrieved.getId()));
+
+		assertEquals(1,beerManager.updateBeer(beer2,beerRetrieved.getId()));
 
 		beers = beerManager.getAllBeers();
-		beerRetrieved = beers.get(1);
+		beerRetrieved = beers.get(0);
 
 		assertEquals(NAME_TO_UPDATE,beerRetrieved.getName());
 		assertEquals(TYPE_TO_UPDATE,beerRetrieved.getType());
@@ -95,5 +92,19 @@ public class BeerManagerTest {
 		assertEquals(PERCENTOFALCOHOL_2, beerRetrieved.getPercentOfAlcohol(),5);
 		assertEquals(PRICE_2,beerRetrieved.getPrice(),5);
 
+	}
+
+	@Test
+	public void checkDeleting(){
+		Beer beer1 = new Beer(NAME_1, TYPE_2, PERCENTOFALCOHOL_1, PRICE_1);
+
+		beerManager.clearBeers();
+		beerManager.addBeer(beer1);
+
+		List<Beer> beers = beerManager.searchBeer("Zywiec Marcowe");
+		Beer beerRetrieved = beers.get(0);
+
+		assertEquals(1,beerManager.deleteBeer(beerRetrieved.getId()));
+		
 	}
 }
