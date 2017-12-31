@@ -14,9 +14,6 @@ public class Type {
     private String name;
     private List<Beer> listOfBeers = new ArrayList<Beer>();
 
-    public Type(String name) {
-        this.name = name;
-    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

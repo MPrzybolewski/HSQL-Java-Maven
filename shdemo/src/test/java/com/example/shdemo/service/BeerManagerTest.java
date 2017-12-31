@@ -1,6 +1,7 @@
 package com.example.shdemo.service;
 
 import com.example.shdemo.domain.Beer;
+import com.example.shdemo.domain.Type;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,6 +40,7 @@ public class BeerManagerTest {
         Beer beer = new Beer();
         beer.setName(NAME_1);
         beer.setPrice(PRICE_1);
+        beer.setType(new Type());
         beerManager.addBeer(beer);
 
         Beer retrievedBeer = beerManager.findBeerByName(NAME_1);

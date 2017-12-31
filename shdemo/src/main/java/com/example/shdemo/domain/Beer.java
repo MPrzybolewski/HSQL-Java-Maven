@@ -13,7 +13,7 @@ public class Beer {
 
     private Long id;
     private String name;
-    private String type;
+    private Type type;
     private double percentOfAlcohol;
     private double price;
 
@@ -35,11 +35,11 @@ public class Beer {
     }
 
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    public String getType() {
+    public Type getType() {
         return type;
     }
 
-    public void setType(String type) {
+    public void setType(Type type) {
         this.type = type;
     }
 
