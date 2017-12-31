@@ -56,7 +56,7 @@ public class BeerManagerHibernateImpl implements BeerManager{
     @Override
     public void updateBeer(Long id) {
         Beer beer = (Beer) sessionFactory.getCurrentSession().get(Beer.class, id);
-        beer.setName("Marcowe");
+        beer.setName("Żywiec Marcowe");
     }
 
     @Override
