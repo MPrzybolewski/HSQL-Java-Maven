@@ -168,8 +168,5 @@ public class BeerManagerTest {
 		int size = beerManager.getAllBeers().size();
 		assertThat(size, either(is(4)).or(is(0)));
 		System.out.println("Size: " + size);
-
-
-
 	}
 }
