@@ -1,12 +1,15 @@
 package com.example.shdemo.service;
 
 import com.example.shdemo.domain.Beer;
+import com.example.shdemo.domain.Client;
+import com.example.shdemo.domain.Purchase;
 import com.example.shdemo.domain.Type;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Date;
 import java.util.List;
 
 @Component
@@ -60,9 +63,9 @@ public class BeerManagerHibernateImpl implements BeerManager{
     }
 
     @Override
-    public void updateBeer(Long id) {
+    public void updateBeerName(Long id, String name) {
         Beer beer = (Beer) sessionFactory.getCurrentSession().get(Beer.class, id);
-        beer.setName("Żywiec Marcowe");
+        beer.setName(name);
     }
 
     @Override
@@ -93,9 +96,88 @@ public class BeerManagerHibernateImpl implements BeerManager{
     }
 
     @Override
-    public void updateType(Long id) {
+    public void updateTypeName(Long id, String name) {
         Type type = (Type) sessionFactory.getCurrentSession().get(Type.class, id);
-        type.setName("Porter");
+        type.setName(name);
     }
+
+    @Override
+    public void addPurchase(Purchase purchase) {
+        sessionFactory.getCurrentSession().persist(purchase);
+    }
+
+    @Override
+    @SuppressWarnings("unchecked")
+    public List<Purchase> getAllPurchase() {
+        return sessionFactory.getCurrentSession().getNamedQuery("purchase.all").list();
+    }
+
+    @Override
+    public void deletePurchase(Purchase purchase) {
+        purchase = (Purchase) sessionFactory.getCurrentSession().get(Purchase.class, purchase.getId());
+        sessionFactory.getCurrentSession().delete(purchase);
+    }
+
+    @Override
+    public Purchase findPurchaseById(Long id) {
+        return (Purchase) sessionFactory.getCurrentSession().get(Purchase.class, id);
+    }
+
+    @Override
+    public void updatePurchaseDate(Long id, Date purchaseDate) {
+        Purchase purchase = (Purchase) sessionFactory.getCurrentSession().get(Purchase.class, id);
+        purchase.setPurchaseDate(purchaseDate);
+    }
+
+
+    @Override
+    public void addClient(Client client) {
+        sessionFactory.getCurrentSession().persist(client);
+    }
+
+    @Override
+    @SuppressWarnings("unchecked")
+    public List<Client> getAllClients() {
+        return sessionFactory.getCurrentSession().getNamedQuery("client.all").list();
+    }
+
+    @Override
+    public void deleteClient(Client client) {
+        client = (Client) sessionFactory.getCurrentSession().get(Client.class, client.getId());
+        sessionFactory.getCurrentSession().delete(client);
+    }
+
+    @Override
+    public Client findClientById(Long id) {
+        return (Client) sessionFactory.getCurrentSession().get(Client.class, id);
+    }
+
+    @Override
+    public Client findClientBySecondName(String secondName) {
+        return (Client) sessionFactory.getCurrentSession().getNamedQuery("client.bySecondName").setString("secondName", secondName).uniqueResult();
+    }
+
+    @Override
+    public void updateClientSecondName(Long id, String secondName) {
+        Client client = (Client) sessionFactory.getCurrentSession().get(Client.class, id);
+        client.setSecondName(secondName);
+    }
+
+    /*
+    @Override
+    public void sellBeer(Long beerId, Long clientId) {
+        Client client = (Client) sessionFactory.getCurrentSession().get(Client.class, clientId);
+        Beer beer = (Beer) sessionFactory.getCurrentSession().get(Beer.class, beerId);
+        client.getListOfBeers().add(beer);
+    }
+
+    @Override
+    public List<Beer> getOwnedBeers(Client client) {
+        client = (Client) sessionFactory.getCurrentSession().get(Client.class, client.getId());
+        List<Beer> beers = new ArrayList<Beer>(client.getListOfBeers());
+        return beers;
+
+    }
+    */
 
 }

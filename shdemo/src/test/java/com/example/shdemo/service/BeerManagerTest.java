@@ -1,6 +1,8 @@
 package com.example.shdemo.service;
 
 import com.example.shdemo.domain.Beer;
+import com.example.shdemo.domain.Client;
+import com.example.shdemo.domain.Purchase;
 import com.example.shdemo.domain.Type;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -9,6 +11,8 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.transaction.TransactionConfiguration;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.Date;
 
 import static org.junit.Assert.assertEquals;
 
@@ -34,9 +38,18 @@ public class BeerManagerTest {
     private final String TYPE_NAME_2 = "Bock";
     private final String TYPE_UPDATENAME = "Porter";
 
+    private final String CLIENT_FIRSTNAME_1 = "Jan";
+    private final String CLIENT_SECONDNAME_1 = "Kowalski";
+
+    private final String CLIENT_FIRSTNAME_2 = "Zenon";
+    private final String CLIENT_SECONDNAME_2 = "Martyniuk";
+
+    private final String CLIENT_UPDATESECONDNAME = "Król";
 
 
-
+    private final Date PURCHASE_DATE_1 = new Date(2010,10,10);
+    private final Date PURCHASE_DATE_2 = new Date(2011,11,11);
+    private final Date PURCHASE_UPDATEDATE = new Date(2012, 12, 12);
 
     @Test
     public void addBeerCheck() {
@@ -74,7 +87,7 @@ public class BeerManagerTest {
         beer.setName(BEER_NAME_2);
         beer.setPrice(BEER_PRICE_2);
         beerManager.addBeer(beer);
-        beerManager.updateBeer(beer.getId());
+        beerManager.updateBeerName(beer.getId(), BEER_UPDATENAME);
         Beer retrivedBeer = beerManager.findBeerByName(BEER_UPDATENAME);
         assertEquals(BEER_UPDATENAME, retrivedBeer.getName());
     }
@@ -123,9 +136,9 @@ public class BeerManagerTest {
         Type type = new Type();
         type.setName(TYPE_NAME_2);
         beerManager.addType(type);
-        beerManager.updateType(type.getId());
-        Type retrivedBeer = beerManager.findTypeByName(TYPE_UPDATENAME);
-        assertEquals(TYPE_UPDATENAME, retrivedBeer.getName());
+        beerManager.updateTypeName(type.getId(), TYPE_UPDATENAME);
+        Type retrivedType = beerManager.findTypeByName(TYPE_UPDATENAME);
+        assertEquals(TYPE_UPDATENAME, retrivedType.getName());
     }
 
     @Test
@@ -146,8 +159,6 @@ public class BeerManagerTest {
         type.setName(TYPE_NAME_1);
         beerManager.addType(type);
 
-        System.out.println("test: " + type.getId());
-
         Beer beer = new Beer();
         beer.setName(BEER_NAME_1);
         beer.setPrice(BEER_PRICE_1);
@@ -162,6 +173,112 @@ public class BeerManagerTest {
         beerManager.deleteType(type);
 
         assertEquals(0, beerManager.getAllBeers().size());
+    }
 
+
+    @Test
+    public void addClientCheck()
+    {
+        Client client = new Client();
+        client.setFirstName(CLIENT_FIRSTNAME_1);
+        client.setSecondName(CLIENT_SECONDNAME_1);
+
+        beerManager.addClient(client);
+
+        Client retrievedClient = beerManager.findClientBySecondName(CLIENT_SECONDNAME_1);
+
+        assertEquals(CLIENT_SECONDNAME_1, retrievedClient.getSecondName());
+    }
+
+    @Test
+    public void getAllClientsCheck()
+    {
+        Client client = new Client();
+        client.setFirstName(CLIENT_FIRSTNAME_1);
+        client.setSecondName(CLIENT_SECONDNAME_1);
+        beerManager.addClient(client);
+
+        Client client2 = new Client();
+        client.setFirstName(CLIENT_FIRSTNAME_2);
+        client.setSecondName(CLIENT_SECONDNAME_2);
+        beerManager.addClient(client2);
+
+        assertEquals(2,beerManager.getAllClients().size());
+    }
+
+    @Test
+    public void updateClientCheck()
+    {
+        Client client = new Client();
+        client.setFirstName(CLIENT_FIRSTNAME_1);
+        client.setSecondName(CLIENT_SECONDNAME_1);
+
+        beerManager.addClient(client);
+
+        beerManager.updateClientSecondName(client.getId(), CLIENT_UPDATESECONDNAME);
+        Client retrivedClient = beerManager.findClientBySecondName(CLIENT_UPDATESECONDNAME);
+        assertEquals(CLIENT_UPDATESECONDNAME, retrivedClient.getSecondName());
+    }
+
+    @Test
+    public void deleteClientCheck()
+    {
+        Client client = new Client();
+        client.setFirstName(CLIENT_FIRSTNAME_1);
+        client.setSecondName(CLIENT_SECONDNAME_1);
+
+        beerManager.addClient(client);
+
+        beerManager.deleteClient(client);
+        assertEquals(0,beerManager.getAllClients().size());
+    }
+
+    @Test
+    public void addPurchaseCheck()
+    {
+        Purchase purchase = new Purchase();
+        purchase.setPurchaseDate(PURCHASE_DATE_1);
+        beerManager.addPurchase(purchase);
+
+
+        Purchase retrievedPurchase = beerManager.findPurchaseById(purchase.getId());
+
+        assertEquals(retrievedPurchase.getPurchaseDate(), retrievedPurchase.getPurchaseDate());
+    }
+
+    @Test
+    public void getAllPurchaseCheck()
+    {
+        Purchase purchase = new Purchase();
+        purchase.setPurchaseDate(PURCHASE_DATE_1);
+        beerManager.addPurchase(purchase);
+
+        Purchase purchase2 = new Purchase();
+        purchase.setPurchaseDate(PURCHASE_DATE_2);
+        beerManager.addPurchase(purchase2);
+
+        assertEquals(2,beerManager.getAllPurchase().size());
+    }
+
+    @Test
+    public void updatePurchaseCheck()
+    {
+        Purchase purchase = new Purchase();
+        purchase.setPurchaseDate(PURCHASE_DATE_1);
+        beerManager.addPurchase(purchase);
+        beerManager.updatePurchaseDate(purchase.getId(), PURCHASE_UPDATEDATE);
+        Purchase retrivedPurchase = beerManager.findPurchaseById(purchase.getId());
+        assertEquals(PURCHASE_UPDATEDATE, retrivedPurchase.getPurchaseDate());
+    }
+
+    @Test
+    public void deletePurchaseCheck()
+    {
+        Purchase purchase = new Purchase();
+        purchase.setPurchaseDate(PURCHASE_DATE_1);
+        beerManager.addPurchase(purchase);
+
+        beerManager.deletePurchase(purchase);
+        assertEquals(0,beerManager.getAllPurchase().size());
     }
 }

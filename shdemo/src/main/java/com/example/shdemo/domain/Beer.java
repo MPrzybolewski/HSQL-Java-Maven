@@ -1,6 +1,8 @@
 package com.example.shdemo.domain;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @NamedQueries({
@@ -16,6 +18,7 @@ public class Beer {
     private Type type;
     private double percentOfAlcohol;
     private double price;
+    private List<Purchase> ListOfPurchase = new ArrayList<Purchase>();
 
 
     @Id
@@ -27,9 +30,12 @@ public class Beer {
     public void setId(Long id) {
         this.id = id;
     }
+
+    @Column(unique = true)
     public String getName() {
         return name;
     }
+
     public void setName(String name) {
         this.name = name;
     }
@@ -57,5 +63,14 @@ public class Beer {
 
     public void setPrice(double price) {
         this.price = price;
+    }
+
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    public List<Purchase> getListOfPurchase() {
+        return ListOfPurchase;
+    }
+
+    public void setListOfPurchase(List<Purchase> listOfPurchase) {
+        ListOfPurchase = listOfPurchase;
     }
 }
