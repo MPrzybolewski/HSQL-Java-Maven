@@ -24,6 +24,12 @@ public class BeerManagerHibernateImpl implements BeerManager{
     @Override
     public void addBeer(Beer beer) {
         beer.setId(null);
+
+        if(beer.getType() != null)
+        {
+            beer.getType().getListOfBeers().add(beer);
+        }
+
         sessionFactory.getCurrentSession().persist(beer);
     }
 
