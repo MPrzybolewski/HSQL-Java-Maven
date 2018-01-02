@@ -5,7 +5,8 @@ import java.util.Date;
 
 @Entity
 @NamedQueries({
-        @NamedQuery(name = "purchase.all", query = "Select p from Purchase p")
+        @NamedQuery(name = "purchase.all", query = "Select p from Purchase p"),
+        @NamedQuery(name = "purchase.deleteAll", query = "Delete from Purchase")
 })
 
 public class Purchase {

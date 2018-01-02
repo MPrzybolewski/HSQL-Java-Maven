@@ -7,7 +7,8 @@ import java.util.List;
 @Entity
 @NamedQueries({
         @NamedQuery(name = "beer.all", query = "Select b from Beer b"),
-        @NamedQuery(name = "beer.byName", query = "Select b from Beer b Where b.name = :name")
+        @NamedQuery(name = "beer.byName", query = "Select b from Beer b Where b.name = :name"),
+        @NamedQuery(name = "beer.deleteAll", query = "Delete from Beer")
 })
 
 

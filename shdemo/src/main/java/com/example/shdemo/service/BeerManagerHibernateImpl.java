@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -69,6 +70,11 @@ public class BeerManagerHibernateImpl implements BeerManager{
     }
 
     @Override
+    public void deleteAllBeers() {
+        sessionFactory.getCurrentSession().getNamedQuery("beer.deleteAll").executeUpdate();
+    }
+
+    @Override
     public void addType(Type type) {
         sessionFactory.getCurrentSession().persist(type);
     }
@@ -102,6 +108,11 @@ public class BeerManagerHibernateImpl implements BeerManager{
     }
 
     @Override
+    public void deleteAllTypes() {
+        sessionFactory.getCurrentSession().getNamedQuery("type.deleteAll").executeUpdate();
+    }
+
+    @Override
     public void addPurchase(Purchase purchase) {
         sessionFactory.getCurrentSession().persist(purchase);
     }
@@ -127,6 +138,11 @@ public class BeerManagerHibernateImpl implements BeerManager{
     public void updatePurchaseDate(Long id, Date purchaseDate) {
         Purchase purchase = (Purchase) sessionFactory.getCurrentSession().get(Purchase.class, id);
         purchase.setPurchaseDate(purchaseDate);
+    }
+
+    @Override
+    public void deleteAllPurchase() {
+        sessionFactory.getCurrentSession().getNamedQuery("purchase.deleteAll").executeUpdate();
     }
 
 
@@ -161,6 +177,19 @@ public class BeerManagerHibernateImpl implements BeerManager{
     public void updateClientSecondName(Long id, String secondName) {
         Client client = (Client) sessionFactory.getCurrentSession().get(Client.class, id);
         client.setSecondName(secondName);
+    }
+
+    @Override
+    public void deleteAllClients() {
+        sessionFactory.getCurrentSession().getNamedQuery("client.deleteAll").executeUpdate();
+    }
+
+    @Override
+    public List<Purchase> getClientOwnedPurchase(Client client) {
+        client = (Client) sessionFactory.getCurrentSession().get(Client.class, client.getId());
+
+        List<Purchase> purchases =new ArrayList<Purchase>(client.getListOfPurchase());
+        return purchases;
     }
 
     /*

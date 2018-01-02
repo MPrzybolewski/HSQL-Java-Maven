@@ -8,7 +8,8 @@ import java.util.List;
 @Entity
 @NamedQueries({
         @NamedQuery(name = "client.all", query = "Select c from Client c"),
-        @NamedQuery(name = "client.bySecondName", query = "Select c from Client c Where c.secondName = :secondName")
+        @NamedQuery(name = "client.bySecondName", query = "Select c from Client c Where c.secondName = :secondName"),
+        @NamedQuery(name = "client.deleteAll", query = "Delete from Client")
 })
 
 public class Client {

@@ -7,7 +7,8 @@ import java.util.List;
 @Entity
 @NamedQueries({
         @NamedQuery(name = "type.all", query = "Select t from Type t"),
-        @NamedQuery(name = "type.byName", query = "Select t from Type t Where t.name = :name")
+        @NamedQuery(name = "type.byName", query = "Select t from Type t Where t.name = :name"),
+        @NamedQuery(name = "type.deleteAll", query = "Delete from Type")
 })
 public class Type {
     private long id;

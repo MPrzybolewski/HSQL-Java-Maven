@@ -51,6 +51,11 @@ public class BeerManagerTest {
     private final Date PURCHASE_DATE_2 = new Date(2011,11,11);
     private final Date PURCHASE_UPDATEDATE = new Date(2012, 12, 12);
 
+
+
+
+
+
     @Test
     public void addBeerCheck() {
         Beer beer = new Beer();
@@ -105,6 +110,25 @@ public class BeerManagerTest {
     }
 
     @Test
+    public void deleteAllBeers()
+    {
+        Beer beer = new Beer();
+        beer.setName(BEER_NAME_1);
+        beer.setPrice(BEER_PRICE_1);
+
+        Beer beer2 = new Beer();
+        beer2.setName(BEER_NAME_2);
+        beer2.setPrice(BEER_PRICE_2);
+
+        beerManager.addBeer(beer);
+        beerManager.addBeer(beer2);
+
+        beerManager.deleteAllBeers();
+
+        assertEquals(0, beerManager.getAllBeers().size());
+    }
+
+    @Test
     public void addTypeCheck()
     {
         Type type = new Type();
@@ -115,6 +139,7 @@ public class BeerManagerTest {
 
         assertEquals(TYPE_NAME_1, retrievedType.getName());
     }
+
 
     @Test
     public void getAllTypesCheck()
@@ -150,6 +175,23 @@ public class BeerManagerTest {
 
         beerManager.deleteType(type);
         assertEquals(0,beerManager.getAllTypes().size());
+    }
+
+    @Test
+    public void deleteAllTypes()
+    {
+        Type type = new Type();
+        type.setName(TYPE_NAME_1);
+
+        Type type2 = new Type();
+        type2.setName(TYPE_NAME_2);
+
+        beerManager.addType(type);
+        beerManager.addType(type2);
+
+        beerManager.deleteAllTypes();
+
+        assertEquals(0, beerManager.getAllBeers().size());
     }
 
     @Test
@@ -234,6 +276,25 @@ public class BeerManagerTest {
     }
 
     @Test
+    public void deleteAllClientCheck()
+    {
+        Client client = new Client();
+        client.setFirstName(CLIENT_FIRSTNAME_1);
+        client.setSecondName(CLIENT_SECONDNAME_1);
+
+        Client client2 = new Client();
+        client2.setFirstName(CLIENT_FIRSTNAME_2);
+        client2.setSecondName(CLIENT_SECONDNAME_2);
+
+        beerManager.addClient(client);
+        beerManager.addClient(client2);
+
+        beerManager.deleteAllClients();
+        assertEquals(0,beerManager.getAllClients().size());
+    }
+
+
+    @Test
     public void addPurchaseCheck()
     {
         Purchase purchase = new Purchase();
@@ -279,6 +340,23 @@ public class BeerManagerTest {
         beerManager.addPurchase(purchase);
 
         beerManager.deletePurchase(purchase);
+        assertEquals(0,beerManager.getAllPurchase().size());
+    }
+
+    @Test
+    public void deleteAllPurchaseCheck()
+    {
+        Purchase purchase = new Purchase();
+        purchase.setPurchaseDate(PURCHASE_DATE_1);
+        beerManager.addPurchase(purchase);
+
+        Purchase purchase2 = new Purchase();
+        purchase2.setPurchaseDate(PURCHASE_DATE_1);
+        beerManager.addPurchase(purchase2);
+
+        beerManager.deletePurchase(purchase);
+        beerManager.deletePurchase(purchase2);
+
         assertEquals(0,beerManager.getAllPurchase().size());
     }
 }
