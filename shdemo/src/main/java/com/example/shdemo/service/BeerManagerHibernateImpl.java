@@ -114,7 +114,15 @@ public class BeerManagerHibernateImpl implements BeerManager{
 
     @Override
     public void addPurchase(Purchase purchase) {
-        sessionFactory.getCurrentSession().persist(purchase);
+
+
+        if(purchase.getClient() != null)
+        {
+            purchase.getClient().getListOfPurchase().add(purchase);
+        }
+
+        sessionFactory.getCurrentSession().save(purchase);
+
     }
 
     @Override

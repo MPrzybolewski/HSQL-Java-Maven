@@ -2,6 +2,7 @@ package com.example.shdemo.service;
 
 
 import com.example.shdemo.domain.Client;
+import com.example.shdemo.domain.Purchase;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,12 +21,33 @@ public class BeerManagerTestWithoutTransactional {
     @Test
     public void lazyExceptionCheck()
     {
+        beerManager.deleteAllClients();
+        beerManager.deleteAllPurchase();
+
         Client client = new Client();
         client.setSecondName(CLIENT_SECONDNAME_1);
         beerManager.addClient(client);
-        beerManager.getClientOwnedPurchase(client);
-        System.out.println( client.getListOfPurchase().get(0).getPurchaseDate());
 
-        beerManager.deleteClient(client);
+        Purchase purchase = new Purchase();
+        purchase.setClient(client);
+
+        beerManager.addPurchase(purchase);
+
+        Client retrievedClient = beerManager.findClientBySecondName(CLIENT_SECONDNAME_1);
+
+        boolean pass = false;
+
+        try{
+            System.out.println(retrievedClient.getListOfPurchase().size());
+        } catch (org.hibernate.LazyInitializationException e) {
+            e.printStackTrace();
+            pass = true;
+        }
+
+        if (!pass)
+            org.junit.Assert.fail();
+
+        beerManager.deleteAllClients();
+        beerManager.deleteAllPurchase();
     }
 }
