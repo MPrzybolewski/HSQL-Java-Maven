@@ -27,8 +27,8 @@
       <file leaf-file-name="BeerManagerTestWithoutTransactional.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/java/com/example/shdemo/service/BeerManagerTestWithoutTransactional.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="282">
-              <caret line="19" column="0" lean-forward="true" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+            <state relative-caret-position="113">
+              <caret line="29" column="63" lean-forward="true" selection-start-line="29" selection-start-column="63" selection-end-line="29" selection-end-column="63" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -39,14 +39,26 @@
       <file leaf-file-name="BeerManagerHibernateImpl.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/example/shdemo/service/BeerManagerHibernateImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="523">
-              <caret line="119" column="9" lean-forward="true" selection-start-line="119" selection-start-column="9" selection-end-line="119" selection-end-column="9" />
+            <state relative-caret-position="235">
+              <caret line="149" column="0" lean-forward="true" selection-start-line="149" selection-start-column="0" selection-end-line="149" selection-end-column="0" />
               <folding>
                 <element signature="e#2084#2085#0" expanded="true" />
                 <element signature="e#2182#2183#0" expanded="true" />
                 <element signature="e#3251#3252#0" expanded="true" />
                 <element signature="e#3349#3350#0" expanded="true" />
+                <element signature="e#4640#4641#0" expanded="true" />
+                <element signature="e#4706#4707#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RunBeforeTestMethodCallbacks.class" pinned="false" current-in-tab="false">
+        <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-test/3.0.6.RELEASE/spring-test-3.0.6.RELEASE.jar!/org/springframework/test/context/junit4/statements/RunBeforeTestMethodCallbacks.class">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="315">
+              <caret line="26" column="0" lean-forward="false" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -54,7 +66,7 @@
       <file leaf-file-name="Beer.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/example/shdemo/domain/Beer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="132">
+            <state relative-caret-position="135">
               <caret line="9" column="95" lean-forward="false" selection-start-line="9" selection-start-column="95" selection-end-line="9" selection-end-column="95" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -66,7 +78,7 @@
       <file leaf-file-name="BeerManager.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/example/shdemo/service/BeerManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="356">
+            <state relative-caret-position="540">
               <caret line="42" column="28" lean-forward="false" selection-start-line="42" selection-start-column="28" selection-end-line="42" selection-end-column="28" />
               <folding />
             </state>
@@ -76,8 +88,8 @@
       <file leaf-file-name="Purchase.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/example/shdemo/domain/Purchase.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="8" column="80" lean-forward="true" selection-start-line="8" selection-start-column="80" selection-end-line="8" selection-end-column="80" />
+            <state relative-caret-position="225">
+              <caret line="15" column="35" lean-forward="true" selection-start-line="15" selection-start-column="35" selection-end-line="15" selection-end-column="35" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -131,12 +143,12 @@
       <list>
         <option value="$PROJECT_DIR$/src/main/java/com/example/shdemo/domain/Beer.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/shdemo/domain/Client.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/example/shdemo/domain/Purchase.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/shdemo/domain/Type.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/shdemo/service/BeerManager.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/example/shdemo/service/BeerManagerTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/shdemo/service/BeerManagerHibernateImpl.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/example/shdemo/service/BeerManagerTestWithoutTransactional.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/example/shdemo/domain/Purchase.java" />
       </list>
     </option>
   </component>
@@ -417,39 +429,39 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="BeerManagerTest - 2018.01.02 at 16h 33m 00s.xml">
-      <configuration name="BeerManagerTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="BeerManagerTest - 2018.01.02 at 16h 37m 35s.xml">
-      <configuration name="BeerManagerTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="BeerManagerTest - 2018.01.02 at 16h 39m 58s.xml">
-      <configuration name="BeerManagerTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="BeerManagerTest - 2018.01.02 at 16h 40m 59s.xml">
-      <configuration name="BeerManagerTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="BeerManagerTest - 2018.01.02 at 16h 41m 36s.xml">
-      <configuration name="BeerManagerTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="BeerManagerTestWithoutTransactional - 2018.01.02 at 17h 06m 48s.xml">
+    <history-entry file="BeerManagerTestWithoutTransactional - 2018.01.03 at 13h 46m 06s.xml">
       <configuration name="BeerManagerTestWithoutTransactional" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="BeerManagerTestWithoutTransactional - 2018.01.02 at 17h 07m 38s.xml">
+    <history-entry file="BeerManagerTestWithoutTransactional - 2018.01.03 at 13h 47m 06s.xml">
       <configuration name="BeerManagerTestWithoutTransactional" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="BeerManagerTestWithoutTransactional - 2018.01.02 at 17h 08m 58s.xml">
+    <history-entry file="BeerManagerTestWithoutTransactional - 2018.01.03 at 13h 49m 11s.xml">
       <configuration name="BeerManagerTestWithoutTransactional" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="BeerManagerTestWithoutTransactional - 2018.01.02 at 17h 09m 33s.xml">
+    <history-entry file="BeerManagerTestWithoutTransactional - 2018.01.03 at 13h 53m 33s.xml">
       <configuration name="BeerManagerTestWithoutTransactional" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="BeerManagerTestWithoutTransactional - 2018.01.02 at 17h 09m 48s.xml">
+    <history-entry file="BeerManagerTestWithoutTransactional - 2018.01.03 at 13h 54m 41s.xml">
+      <configuration name="BeerManagerTestWithoutTransactional" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="BeerManagerTestWithoutTransactional - 2018.01.03 at 13h 58m 18s.xml">
+      <configuration name="BeerManagerTestWithoutTransactional" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="BeerManagerTestWithoutTransactional - 2018.01.03 at 14h 04m 39s.xml">
+      <configuration name="BeerManagerTestWithoutTransactional" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="BeerManagerTestWithoutTransactional - 2018.01.03 at 14h 04m 46s.xml">
+      <configuration name="BeerManagerTestWithoutTransactional" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="BeerManagerTestWithoutTransactional - 2018.01.03 at 14h 07m 31s.xml">
+      <configuration name="BeerManagerTestWithoutTransactional" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="BeerManagerTestWithoutTransactional - 2018.01.03 at 14h 08m 28s.xml">
       <configuration name="BeerManagerTestWithoutTransactional" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1440" height="900" extended-state="0" />
+    <frame x="0" y="0" width="1920" height="1080" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -460,12 +472,12 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.35694444" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26770833" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18194444" sideWeight="0.5" order="4" side_tool="false" content_ui="combo" x="446" y="223" width="350" height="431" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13645834" sideWeight="0.5" order="4" side_tool="false" content_ui="combo" x="446" y="223" width="350" height="431" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -535,6 +547,8 @@
             <element signature="e#2182#2183#0" expanded="true" />
             <element signature="e#3251#3252#0" expanded="true" />
             <element signature="e#3349#3350#0" expanded="true" />
+            <element signature="e#4640#4641#0" expanded="true" />
+            <element signature="e#4706#4707#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -585,10 +599,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/shdemo/domain/Beer.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/shdemo/domain/Type.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="9" column="95" lean-forward="false" selection-start-line="9" selection-start-column="95" selection-end-line="9" selection-end-column="95" />
+        <state relative-caret-position="165">
+          <caret line="13" column="20" lean-forward="true" selection-start-line="13" selection-start-column="20" selection-end-line="13" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/example/shdemo/service/BeerManagerTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="587">
+          <caret line="348" column="43" lean-forward="true" selection-start-line="348" selection-start-column="43" selection-end-line="348" selection-end-column="43" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -605,36 +627,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/shdemo/domain/Purchase.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="80" lean-forward="true" selection-start-line="8" selection-start-column="80" selection-end-line="8" selection-end-column="80" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/shdemo/domain/Type.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="13" column="20" lean-forward="true" selection-start-line="13" selection-start-column="20" selection-end-line="13" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/example/shdemo/service/BeerManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="356">
+        <state relative-caret-position="540">
           <caret line="42" column="28" lean-forward="false" selection-start-line="42" selection-start-column="28" selection-end-line="42" selection-end-column="28" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/example/shdemo/service/BeerManagerTest.java">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-test/3.0.6.RELEASE/spring-test-3.0.6.RELEASE.jar!/org/springframework/test/context/junit4/statements/RunBeforeTestMethodCallbacks.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="587">
-          <caret line="348" column="43" lean-forward="true" selection-start-line="348" selection-start-column="43" selection-end-line="348" selection-end-column="43" />
+        <state relative-caret-position="315">
+          <caret line="26" column="0" lean-forward="false" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/shdemo/domain/Beer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="95" lean-forward="false" selection-start-line="9" selection-start-column="95" selection-end-line="9" selection-end-column="95" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -643,21 +655,33 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/example/shdemo/service/BeerManagerHibernateImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="523">
-          <caret line="119" column="9" lean-forward="true" selection-start-line="119" selection-start-column="9" selection-end-line="119" selection-end-column="9" />
+        <state relative-caret-position="235">
+          <caret line="149" column="0" lean-forward="true" selection-start-line="149" selection-start-column="0" selection-end-line="149" selection-end-column="0" />
           <folding>
             <element signature="e#2084#2085#0" expanded="true" />
             <element signature="e#2182#2183#0" expanded="true" />
             <element signature="e#3251#3252#0" expanded="true" />
             <element signature="e#3349#3350#0" expanded="true" />
+            <element signature="e#4640#4641#0" expanded="true" />
+            <element signature="e#4706#4707#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/shdemo/domain/Purchase.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="35" lean-forward="true" selection-start-line="15" selection-start-column="35" selection-end-line="15" selection-end-column="35" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/com/example/shdemo/service/BeerManagerTestWithoutTransactional.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="282">
-          <caret line="19" column="0" lean-forward="true" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+        <state relative-caret-position="113">
+          <caret line="29" column="63" lean-forward="true" selection-start-line="29" selection-start-column="63" selection-end-line="29" selection-end-column="63" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

@@ -35,7 +35,7 @@ public class Purchase {
         this.purchaseDate = purchaseDate;
     }
 
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     public Client getClient() {
         return client;
     }
